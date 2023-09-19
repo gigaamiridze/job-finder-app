@@ -3,7 +3,7 @@ import { Stack } from 'expo-router';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { globalStyles } from '../styles';
 import { icons, images } from '../constants';
-import { ScreenHeaderBtn, Welcome } from '../components';
+import { ScreenHeaderBtn, Welcome, PopularJobs } from '../components';
 
 const Home = () => {
   return (
@@ -34,6 +34,7 @@ const Home = () => {
         style={globalStyles.paddingHorizontal}
       >
         <Welcome />
+        <PopularJobs />
       </ScrollView>
     </SafeAreaView>
   )
