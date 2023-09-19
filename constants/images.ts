@@ -1,3 +1,3 @@
 import profile from '../assets/images/kemal.jpg';
 
-export { profile };
+export default { profile };
