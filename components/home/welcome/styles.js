@@ -4,6 +4,7 @@ import { COLORS, FONT, SIZES } from '../../../constants';
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    marginTop: SIZES.large,
   },
   userName: {
     fontFamily: FONT.regular,
