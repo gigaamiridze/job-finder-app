@@ -40,6 +40,7 @@ const Welcome = () => {
       <View style={styles.tabsContainer}>
         <FlatList 
           horizontal={true}
+          showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ columnGap: SIZES.small }}
           data={jobTypes}
           keyExtractor={(item, index) => index.toString()}

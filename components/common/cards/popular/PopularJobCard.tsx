@@ -2,7 +2,11 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 
-const PopularJobCard = () => {
+interface IPopularJobCardProps {
+  item: any;
+}
+
+const PopularJobCard = ({ item }: IPopularJobCardProps) => {
   return (
     <View>
       <Text>PopularJobCard</Text>
