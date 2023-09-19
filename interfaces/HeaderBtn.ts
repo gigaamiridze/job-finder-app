@@ -1,4 +1,5 @@
 export interface IScreenHeaderBtnProps {
-  icon: any;
+  iconUrl: any;
   dimension: string;
+  handlePress: () => void;
 }

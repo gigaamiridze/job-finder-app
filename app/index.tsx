@@ -14,10 +14,18 @@ const Home = () => {
           headerShadowVisible: false,
           headerTitle: '',
           headerLeft: () => (
-            <ScreenHeaderBtn icon={icons.menu} dimension='60%' />
+            <ScreenHeaderBtn 
+              iconUrl={icons.menu} 
+              dimension='60%' 
+              handlePress={() => {}}
+            />
           ),
           headerRight: () => (
-            <ScreenHeaderBtn icon={images.profile} dimension='100%' />
+            <ScreenHeaderBtn 
+              iconUrl={images.profile} 
+              dimension='100%' 
+              handlePress={() => {}}
+            />
           ),
         }}
       />

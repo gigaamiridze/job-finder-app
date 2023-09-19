@@ -1,15 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { TouchableOpacity, Image } from 'react-native';
 import { IScreenHeaderBtnProps } from '../../../interfaces';
 import styles from './styles';
 
 const ScreenHeaderBtn = (props: IScreenHeaderBtnProps) => {
-  const { icon, dimension } = props;
+  const { iconUrl, dimension } = props;
 
   return (
-    <View>
-      <Text>ScreenHeaderBtn</Text>
-    </View>
+    <TouchableOpacity 
+      activeOpacity={0.5}
+      style={styles.btnContainer}
+    >
+      <Image 
+        source={iconUrl}
+        resizeMode='contain'
+        style={styles.btnImg(dimension)}
+      />
+    </TouchableOpacity>
   )
 }
 
