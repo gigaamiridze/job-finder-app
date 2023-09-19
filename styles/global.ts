@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../constants';
+import { COLORS, SIZES } from '../constants';
 
 const globalStyles = StyleSheet.create({
   flex: {
@@ -11,6 +11,9 @@ const globalStyles = StyleSheet.create({
   screenContainer: {
     flex: 1,
     backgroundColor: COLORS.lightWhite,
+  },
+  paddingHorizontal: {
+    paddingHorizontal: SIZES.medium,
   },
 });
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { SafeAreaView, View, Text } from 'react-native';
 import { Stack } from 'expo-router';
+import { SafeAreaView, ScrollView } from 'react-native';
 import { globalStyles } from '../styles';
 import { icons, images } from '../constants';
-import { ScreenHeaderBtn } from '../components';
+import { ScreenHeaderBtn, Welcome } from '../components';
 
 const Home = () => {
   return (
@@ -29,6 +29,12 @@ const Home = () => {
           ),
         }}
       />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={globalStyles.paddingHorizontal}
+      >
+        <Welcome />
+      </ScrollView>
     </SafeAreaView>
   )
 }
