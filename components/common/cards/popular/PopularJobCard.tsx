@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { IPopularJobCardProps } from '../../../../interfaces';
+import { checkImageURL } from '../../../../utils';
 import styles from './styles';
 
 const PopularJobCard = (props: IPopularJobCardProps) => {
@@ -17,7 +18,10 @@ const PopularJobCard = (props: IPopularJobCardProps) => {
         style={styles.logoContainer(selectedJob, item)}
       >
         <Image 
-          source={{ uri: item.employer_logo }}
+          source={{ uri: checkImageURL(item.employer_logo) 
+            ? item.employer_logo 
+            : 'https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg'
+          }}
           resizeMode='contain'
           style={styles.logoImage}
         />
