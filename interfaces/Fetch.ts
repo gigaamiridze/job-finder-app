@@ -1,8 +1,10 @@
+import { IJobItem } from './Job';
+
 interface IFetchData {
   status: string;
   request_id: string;
   parameters: ParamsType;
-  data: any[];
+  data: IJobItem[];
 }
 
 type EndpointType = 'search' | 'search-filters' | 'job-details' | 'estimated-salary';

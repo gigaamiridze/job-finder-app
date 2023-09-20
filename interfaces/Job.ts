@@ -14,7 +14,7 @@ export interface INearbyJobCardProps {
   handleNavigate: () => void;
 }
 
-interface IJobItem {
+export interface IJobItem {
   employer_name: string;
   employer_logo: string;
   employer_website: string;

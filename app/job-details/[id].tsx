@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import { Stack, useRouter, useSearchParams } from 'expo-router';
-import { SafeAreaView, ScrollView, RefreshControl, Text } from 'react-native';
-import { ScreenHeaderBtn } from '../../components';
+import { SafeAreaView, ScrollView, View, RefreshControl, Text, ActivityIndicator } from 'react-native';
+import { COLORS, SIZES, icons } from '../../constants';
+import { ScreenHeaderBtn, Company } from '../../components';
 import { globalStyles } from '../../styles';
-import { icons } from '../../constants';
 import { useFetch } from '../../hooks';
 
 const JobDetails = () => {
@@ -48,7 +48,22 @@ const JobDetails = () => {
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
         style={globalStyles.paddingHorizontal}
       >
-        <Text>Job Details</Text>
+        {isLoading ? (
+          <ActivityIndicator size='large' color={COLORS.primary} />
+        ) : error ? (
+          <Text>Something went wrong</Text>
+        ) : data?.data.length === 0 ? (
+          <Text>No data available</Text>
+        ) : (
+          <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
+            <Company 
+              companyName={data?.data[0].employer_name}
+              companyLogo={data?.data[0].employer_logo}
+              jobTitle={data?.data[0].job_title}
+              location={data?.data[0].job_country}
+            />
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   )
