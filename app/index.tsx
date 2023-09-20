@@ -3,7 +3,7 @@ import { Stack } from 'expo-router';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { globalStyles } from '../styles';
 import { icons, images } from '../constants';
-import { ScreenHeaderBtn, Welcome, PopularJobs } from '../components';
+import { ScreenHeaderBtn, Welcome, PopularJobs, NearbyJobs } from '../components';
 
 const Home = () => {
   return (
@@ -35,6 +35,7 @@ const Home = () => {
       >
         <Welcome />
         <PopularJobs />
+        <NearbyJobs />
       </ScrollView>
     </SafeAreaView>
   )

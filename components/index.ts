@@ -1,5 +1,4 @@
 // Common
-export { default as NearbyJobCard } from './common/cards/nearby/NearbyJobCard';
 export { default as ScreenHeaderBtn } from './common/header/ScreenHeaderBtn';
 
 // Home
