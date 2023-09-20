@@ -31,15 +31,11 @@ const NearbyJobs = () => {
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
-          <FlatList       
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ columnGap: SIZES.medium }}
-            data={data?.data}
-            keyExtractor={(item) => item.job_id}
-            renderItem={({ item }) => (
-              <NearbyJobCard />
-            )}
-          />
+          data?.data.map((item) => (
+            <NearbyJobCard 
+              key={item.job_id}
+            />
+          ))
         )}
       </View>
     </View>
