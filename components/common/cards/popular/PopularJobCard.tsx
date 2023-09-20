@@ -35,6 +35,7 @@ const PopularJobCard = (props: IPopularJobCardProps) => {
         >
           {item.job_title}
         </Text>
+        <Text style={styles.location}>{item.job_country}</Text>
       </View>
     </TouchableOpacity>
   )
