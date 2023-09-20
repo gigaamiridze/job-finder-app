@@ -20,14 +20,12 @@ const Home = () => {
               <ScreenHeaderBtn 
                 iconUrl={icons.menu} 
                 dimension='60%' 
-                handlePress={() => {}}
               />
             ),
             headerRight: () => (
               <ScreenHeaderBtn 
                 iconUrl={images.profile} 
                 dimension='100%' 
-                handlePress={() => {}}
               />
             ),
           }}

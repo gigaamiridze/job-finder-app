@@ -4,12 +4,13 @@ import { IScreenHeaderBtnProps } from '../../../interfaces';
 import styles from './styles';
 
 const ScreenHeaderBtn = (props: IScreenHeaderBtnProps) => {
-  const { iconUrl, dimension } = props;
+  const { iconUrl, dimension, handlePress } = props;
 
   return (
     <TouchableOpacity 
       activeOpacity={0.5}
       style={styles.btnContainer}
+      onPress={() => handlePress && handlePress()}
     >
       <Image 
         source={iconUrl}
