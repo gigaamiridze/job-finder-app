@@ -9,7 +9,7 @@ const PopularJobCard = (props: IPopularJobCardProps) => {
 
   return (
     <TouchableOpacity
-      activeOpacity={0.9}
+      activeOpacity={0.8}
       onPress={() => handleCardPress(item.job_id)}
       style={styles.container(selectedJob, item)}
     >

@@ -4,6 +4,11 @@ export interface IPopularJobCardProps {
   handleCardPress: (jobId: string) => void;
 }
 
+export interface INearbyJobCardProps {
+  item: IJobItem;
+  handleNavigate: () => void;
+}
+
 interface IJobItem {
   employer_name: string;
   employer_logo: string;
