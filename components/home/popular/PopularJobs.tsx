@@ -37,7 +37,7 @@ const PopularJobs = () => {
             renderItem={({ item }) => (
               <PopularJobCard 
                 item={item} 
-                selectedJob={''}
+                selectedJob={item.job_id}
                 handlePress={() => {}}
               />
             )}
