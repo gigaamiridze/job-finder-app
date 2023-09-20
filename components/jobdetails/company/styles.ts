@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   companyInfoBox: {
-    marginTop: SIZES.small / 2,
+    marginTop: SIZES.xSmall,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
