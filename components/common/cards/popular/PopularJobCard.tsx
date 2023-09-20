@@ -5,12 +5,12 @@ import { checkImageURL } from '../../../../utils';
 import styles from './styles';
 
 const PopularJobCard = (props: IPopularJobCardProps) => {
-  const { item, selectedJob, handlePress } = props;
+  const { item, selectedJob, handleCardPress } = props;
 
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      onPress={() => handlePress(item)}
+      onPress={() => handleCardPress(item.job_id)}
       style={styles.container(selectedJob, item)}
     >
       <TouchableOpacity

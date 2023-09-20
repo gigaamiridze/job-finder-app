@@ -1,7 +1,7 @@
 export interface IPopularJobCardProps {
   item: IJobItem;
   selectedJob: string;
-  handlePress: (item: IJobItem) => void;
+  handleCardPress: (jobId: string) => void;
 }
 
 interface IJobItem {
