@@ -1,16 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { IPopularJobCardProps } from '../../../../interfaces';
 import styles from './styles';
 
-interface IPopularJobCardProps {
-  item: any;
-}
+const PopularJobCard = (props: IPopularJobCardProps) => {
+  const { item, selectedJob, handlePress } = props;
 
-const PopularJobCard = ({ item }: IPopularJobCardProps) => {
   return (
-    <View>
-      <Text>PopularJobCard</Text>
-    </View>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPress={() => handlePress(item)}
+      style={styles.container(selectedJob, item)}
+    >
+    </TouchableOpacity>
   )
 }
 

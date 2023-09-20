@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
-import { PopularJobCard } from '../../../components';
+import PopularJobCard from '../../../components/common/cards/popular/PopularJobCard';
 import { COLORS, SIZES } from '../../../constants';
+import { useFetch } from '../../../hooks';
 import styles from './styles';
 
 const PopularJobs = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+  const params = {
+    query: 'React developer',
+    page: 1,
+    num_pages: 1,
+  };
+
+  const { data, isLoading, error } = useFetch('search', params);
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Popular jobs</Text>
-        <TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.5}>
           <Text style={styles.headerBtn}>Show all</Text>
         </TouchableOpacity>
       </View>
@@ -26,10 +32,14 @@ const PopularJobs = () => {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ columnGap: SIZES.medium }}
-            data={[1, 2, 3, 4, 5, 6]}
+            data={data.data}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
-              <PopularJobCard item={item} />
+              <PopularJobCard 
+                item={item} 
+                selectedJob={''}
+                handlePress={() => {}}
+              />
             )}
           />
         )}

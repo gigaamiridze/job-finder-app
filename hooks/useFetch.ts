@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useFetchProps } from '../interfaces';
+import { IFetchData, EndpointType, ParamsType } from '../interfaces';
 import { RAPID_API_KEY } from '@env';
 import axios from 'axios';
 
-function useFetch(props: useFetchProps) {
-  const { endpoint, params } = props;
-  const [data, setData] = useState<any[] | null>(null);
+function useFetch(endpoint: EndpointType, params: ParamsType) {
+  const [data, setData] = useState<IFetchData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
