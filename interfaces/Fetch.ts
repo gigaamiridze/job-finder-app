@@ -7,9 +7,10 @@ interface IFetchData {
 
 type EndpointType = 'search' | 'search-filters' | 'job-details' | 'estimated-salary';
 type ParamsType = {
-  query: string,
-  page: number;
-  num_pages: number;
+  query?: string,
+  job_id?: string;
+  page?: number;
+  num_pages?: number;
 };
 
 export { IFetchData, EndpointType, ParamsType };
