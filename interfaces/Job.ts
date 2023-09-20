@@ -1,3 +1,8 @@
+export interface IPopularJobsProps {
+  selectedJob: string;
+  setSelectedJob: React.Dispatch<React.SetStateAction<string>>;
+}
+
 export interface IPopularJobCardProps {
   item: IJobItem;
   selectedJob: string;

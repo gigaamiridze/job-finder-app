@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
 import PopularJobCard from '../../../components/common/cards/popular/PopularJobCard';
+import { IPopularJobsProps } from '../../../interfaces';
 import { COLORS, SIZES } from '../../../constants';
 import { useFetch } from '../../../hooks';
 import { useRouter } from 'expo-router';
 import styles from './styles';
 
-const PopularJobs = () => {
-  const [selectedJob, setSelectedJob] = useState<string | null>(null);
+const PopularJobs = (props: IPopularJobsProps) => {
+  const { selectedJob, setSelectedJob } = props;
   const router = useRouter();
 
   const params = {
