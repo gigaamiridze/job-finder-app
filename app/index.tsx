@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { SafeAreaView, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { globalStyles } from '../styles';
 import { icons, images } from '../constants';
@@ -7,6 +7,8 @@ import { ScreenHeaderBtn, Welcome, PopularJobs, NearbyJobs } from '../components
 
 const Home = () => {
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const router = useRouter();
 
   return (
     <TouchableWithoutFeedback onPress={() => setSelectedJob(null)}>
@@ -34,7 +36,15 @@ const Home = () => {
           showsVerticalScrollIndicator={false}
           style={globalStyles.paddingHorizontal}
         >
-          <Welcome />
+          <Welcome 
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            handlePress={() => {
+              if (searchTerm) {
+                router.push(`/search/${searchTerm}`);
+              }
+            }}
+          />
           <PopularJobs 
             selectedJob={selectedJob}
             setSelectedJob={setSelectedJob}
