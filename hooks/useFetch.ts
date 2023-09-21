@@ -29,7 +29,7 @@ function useFetch(endpoint: EndpointType, params: ParamsType) {
       setData(data?.data);
       setIsLoading(false);
     } catch (error) {
-      setError(error);
+      setError(error as string | null);
       setIsLoading(false);
     }
   };
