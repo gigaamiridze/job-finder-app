@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 
-const StackLayout = () => {
+const Layout = () => {
   const [fontsLoaded] = useFonts({
     DMBold: require('../assets/fonts/DMSans-Bold.ttf'),
     DMMedium: require('../assets/fonts/DMSans-Medium.ttf'),
@@ -23,4 +23,4 @@ const StackLayout = () => {
   return <Stack />;
 }
 
-export default StackLayout;
+export default Layout;
