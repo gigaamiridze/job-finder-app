@@ -1,11 +1,24 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
+import { ITabsProps } from '../../../interfaces';
+import { SIZES } from '../../../constants';
 import styles from './styles';
 
-const Tabs = () => {
+const Tabs = (props: ITabsProps) => {
+  const { tabs, activeTab, setActiveTab } = props;
+
   return (
-    <View>
-      <Text>Tabs</Text>
+    <View style={styles.container}>
+      <FlatList 
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ columnGap: SIZES.small / 2 }}
+        data={tabs}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => (
+          <Text>{item}</Text>
+        )}
+      />
     </View>
   )
 }
