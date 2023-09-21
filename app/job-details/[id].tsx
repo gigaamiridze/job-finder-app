@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Stack, useRouter, useSearchParams } from 'expo-router';
 import { SafeAreaView, ScrollView, View, RefreshControl, Text, ActivityIndicator } from 'react-native';
-import { ScreenHeaderBtn, Company, Tabs } from '../../components';
+import { ScreenHeaderBtn, Company, Tabs, Specifics, JobAbout } from '../../components';
 import { COLORS, icons } from '../../constants';
 import { globalStyles } from '../../styles';
 import { useFetch } from '../../hooks';
@@ -22,6 +22,31 @@ const JobDetails = () => {
     refetch();
     setRefreshing(false);
   }, []);
+
+  const displayTabContent = () => {
+    switch (activeTab) {
+      case 'About':
+        return (
+          <JobAbout info={data?.data[0].job_description ?? 'No data provided'} />
+        );
+      case 'Qualifications':
+        return (
+          <Specifics 
+            title='Qualifications'
+            points={data?.data[0].job_highlights?.Qualifications ?? ['N/A']}
+          />
+        );
+      case 'Responsibilities':
+        return (
+          <Specifics 
+            title='Responsibilities'
+            points={data?.data[0].job_highlights?.Responsibilities ?? ['N/A']}
+          />
+        );
+      default: 
+        return null;
+    }
+  }
 
   return (
     <SafeAreaView style={globalStyles.screenContainer}>
@@ -70,6 +95,7 @@ const JobDetails = () => {
               activeTab={activeTab}
               setActiveTab={setActiveTab}
             />
+            {displayTabContent()}
           </View>
         )}
       </ScrollView>
