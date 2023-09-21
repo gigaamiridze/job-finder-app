@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { ITabsProps } from '../../../interfaces';
 import { SIZES } from '../../../constants';
+import TabButton from './TabButton';
 import styles from './styles';
 
 const Tabs = (props: ITabsProps) => {
@@ -16,7 +17,11 @@ const Tabs = (props: ITabsProps) => {
         data={tabs}
         keyExtractor={(item) => item}
         renderItem={({ item }) => (
-          <Text>{item}</Text>
+          <TabButton 
+            name={item}
+            activeTab={activeTab}
+            handleSearchType={() => setActiveTab(item)}
+          />
         )}
       />
     </View>

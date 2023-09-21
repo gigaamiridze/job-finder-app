@@ -3,3 +3,9 @@ export interface ITabsProps {
   activeTab: string;
   setActiveTab: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface ITabButtonProps {
+  name: string;
+  activeTab: string;
+  handleSearchType: () => void;
+}
