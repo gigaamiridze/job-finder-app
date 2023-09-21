@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Stack, useRouter, useSearchParams } from 'expo-router';
 import { SafeAreaView, ScrollView, View, RefreshControl, Text, ActivityIndicator } from 'react-native';
-import { ScreenHeaderBtn, Company, Tabs, Specifics, JobAbout } from '../../components';
+import { ScreenHeaderBtn, Company, Tabs, Specifics, JobAbout, JobFooter } from '../../components';
 import { COLORS, icons } from '../../constants';
 import { globalStyles } from '../../styles';
 import { useFetch } from '../../hooks';
@@ -27,20 +27,20 @@ const JobDetails = () => {
     switch (activeTab) {
       case 'About':
         return (
-          <JobAbout info={data?.data[0].job_description ?? 'No data provided'} />
+          <JobAbout info={data?.[0].job_description ?? 'No data provided'} />
         );
       case 'Qualifications':
         return (
           <Specifics 
             title='Qualifications'
-            points={data?.data[0].job_highlights?.Qualifications ?? ['N/A']}
+            points={data?.[0].job_highlights?.Qualifications ?? ['N/A']}
           />
         );
       case 'Responsibilities':
         return (
           <Specifics 
             title='Responsibilities'
-            points={data?.data[0].job_highlights?.Responsibilities ?? ['N/A']}
+            points={data?.[0].job_highlights?.Responsibilities ?? ['N/A']}
           />
         );
       default: 
@@ -80,15 +80,13 @@ const JobDetails = () => {
           <ActivityIndicator size='large' color={COLORS.primary} />
         ) : error ? (
           <Text>Something went wrong</Text>
-        ) : data?.data.length === 0 ? (
-          <Text>No data available</Text>
-        ) : (
-          <View style={{ paddingBottom: 30 }}>
+        ) : data ? (
+          <View style={{ paddingBottom: 100 }}>
             <Company 
-              companyName={data?.data[0].employer_name}
-              companyLogo={data?.data[0].employer_logo}
-              jobTitle={data?.data[0].job_title}
-              location={data?.data[0].job_country}
+              companyName={data[0].employer_name}
+              companyLogo={data[0].employer_logo}
+              jobTitle={data[0].job_title}
+              location={data[0].job_country}
             />
             <Tabs 
               tabs={tabs}
@@ -97,8 +95,11 @@ const JobDetails = () => {
             />
             {displayTabContent()}
           </View>
+        ) : (
+          <Text>No data available</Text>
         )}
       </ScrollView>
+      <JobFooter url={data?.[0].job_google_link ?? 'https://careers.google.com/jobs/results/'} />
     </SafeAreaView>
   )
 }

@@ -42,7 +42,7 @@ const PopularJobs = (props: IPopularJobsProps) => {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ columnGap: SIZES.medium }}
-            data={data?.data}
+            data={data}
             keyExtractor={(item) => item.job_id}
             renderItem={({ item }) => (
               <PopularJobCard 

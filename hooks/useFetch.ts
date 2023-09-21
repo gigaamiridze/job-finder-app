@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { IFetchData, EndpointType, ParamsType } from '../interfaces';
+import { IFetchData, EndpointType, ParamsType, IJobItem } from '../interfaces';
 import { RAPID_API_KEY } from '@env';
 import axios from 'axios';
 
 function useFetch(endpoint: EndpointType, params: ParamsType) {
-  const [data, setData] = useState<IFetchData | null>(null);
+  const [data, setData] = useState<IJobItem[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -25,8 +25,8 @@ function useFetch(endpoint: EndpointType, params: ParamsType) {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const { data } = await axios.request(options);
-      setData(data);
+      const { data } = await axios.request<IFetchData>(options);
+      setData(data?.data);
       setIsLoading(false);
     } catch (error) {
       setError(error);

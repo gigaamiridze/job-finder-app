@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import NearbyJobCard from '../../../components/common/cards/nearby/NearbyJobCard';
 import { COLORS } from '../../../constants';
 import { useFetch } from '../../../hooks';
@@ -31,7 +31,7 @@ const NearbyJobs = () => {
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
-          data?.data.map((item) => (
+          data?.map((item) => (
             <NearbyJobCard 
               key={item.job_id}
               item={item}
