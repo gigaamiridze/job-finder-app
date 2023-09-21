@@ -7,8 +7,19 @@ const Specifics = (props: ISpecificsProps) => {
   const { title, points } = props;
 
   return (
-    <View>
-      <Text>Specifics</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>{title}:</Text>
+      <View style={styles.pointsContainer}>
+        {points.map((item, index) => (
+          <View 
+            key={index}
+            style={styles.pointWrapper}
+          >
+            <View style={styles.pointDot} />
+            <Text style={styles.pointText}>{item}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   )
 }

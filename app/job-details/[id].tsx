@@ -83,7 +83,7 @@ const JobDetails = () => {
         ) : data?.data.length === 0 ? (
           <Text>No data available</Text>
         ) : (
-          <View style={{ paddingBottom: 100 }}>
+          <View style={{ paddingBottom: 30 }}>
             <Company 
               companyName={data?.data[0].employer_name}
               companyLogo={data?.data[0].employer_logo}
