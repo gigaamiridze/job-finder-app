@@ -102,6 +102,7 @@ const JobSearch = () => {
           ListFooterComponent={() => (
             <View style={searchStyles.footerContainer}>
               <TouchableOpacity
+                activeOpacity={0.5}
                 style={searchStyles.paginationButton}
                 onPress={() => handlePagination('left')}
               >
@@ -115,6 +116,7 @@ const JobSearch = () => {
                 <Text style={searchStyles.paginationText}>{page}</Text>
               </View>
               <TouchableOpacity
+                activeOpacity={0.5}
                 style={searchStyles.paginationButton}
                 onPress={() => handlePagination('right')}
               >
