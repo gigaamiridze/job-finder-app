@@ -9,4 +9,5 @@ Discover your dream job with our responsive and user-friendly job finder app. Po
  - Pagination for easy browsing through job listings
  - Developed using Expo for cross-platform compatibility
  - Built with React Native and TypeScript
- 
+
+🔗 JSeach API: [Here](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch)
