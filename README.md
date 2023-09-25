@@ -11,3 +11,7 @@ Discover your dream job with our responsive and user-friendly job finder app. Po
  - Built with React Native and TypeScript
 
 🔗 JSeach API: [Here](https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch)
+
+## App Video Review
+
+<a href='https://clipchamp.com/watch/OHrpqIjbbbI/embed' target='_blank'>Click here and view the video</a>
